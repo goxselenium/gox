@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteChrome-Automation">
+	<listeners>
+		<listener class-name="listeners.TestListener" />
+		<listener class-name="listeners.ExecutionListener" />
+		<listener class-name="listeners.SuiteListener" />
+	</listeners>
+	<test name="Test-Login">
+		<parameter name="BrowserType" value="Chrome" />
+		<parameter name="Version" value="v107.0.5304.122" />
+		<classes>
+			<class name="tests.LoginTest" />
+		</classes>
+	</test>
+	<!-- <test name="Test-Products"> -->
+	<!-- <parameter name="BrowserType" value="Chrome" /> -->
+	<!-- <parameter name="Version" value="99" /> -->
+	<!-- <classes> -->
+	<!-- <class name="tests.ProductTest" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+</suite>

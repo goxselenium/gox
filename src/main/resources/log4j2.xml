@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration>
+    <Properties>
+        <!-- Logs location will be at the parent project folder -->
+        <Property name="basePath">./src/test/resources/logs </Property>
+    </Properties>
+    <Appenders>
+        <!-- Setting the name of the log -->
+        <RollingFile name="fileLogger" filePattern="${basePath}/selenium-%d{yyyy-MM-dd}.log" fileName="${basePath}/selenium.log">
+            <!-- Setting log time date formation -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.fff} %-5level %c{2} -%msg%n" />
+            <Policies>
+                <!-- Setting days of life -->
+                <TimeBasedTriggeringPolicy modulate="true" interval="30" />
+                <!-- Setting log size -->
+                <SizeBasedTriggeringPolicy size="10000 KB" />
+            </Policies>
+        </RollingFile>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="loggingfile" level="info" additivity="false">
+            <!-- Setting the package name for the file to log and log level to file -->
+            <AppenderRef ref="fileLogger" level="info" />
+            <AppenderRef ref="console" level="info" />
+            <!-- Setting the log level to file -->
+        </Logger>
+        <Root level="info" additivity="false">
+            <!-- Setting the log level to console or file -->
+            <AppenderRef ref="fileLogger" />
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>
