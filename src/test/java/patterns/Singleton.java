@@ -1,5 +1,4 @@
 package patterns;
-package patterns;
 
 import org.openqa.selenium.WebDriver;
 
